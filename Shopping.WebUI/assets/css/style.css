@@ -1,0 +1,105 @@
+@font-face {
+	font-family: 'icomoon';
+	src:url('../fonts/icomoon.eot');
+	src:url('../fonts/icomoon.eot?#iefix') format('embedded-opentype'),
+		url('../fonts/icomoon.svg#icomoon') format('svg'),
+		url('../fonts/icomoon.woff') format('woff'),
+		url('../fonts/icomoon.ttf') format('truetype');
+	font-weight: normal;
+	font-style: normal;
+}
+
+/* Use the following CSS code if you want to use data attributes for inserting your icons */
+[data-icon]:before {
+	font-family: 'icomoon';
+	content: attr(data-icon);
+	speak: none;
+	font-weight: normal;
+	line-height: 1;
+	-webkit-font-smoothing: antialiased;
+}
+
+/* Use the following CSS code if you want to have a class per icon */
+[class^="icon-"]:before, [class*=" icon-"]:before {
+	font-family: 'icomoon';
+	font-style: normal;
+	speak: none;
+	font-weight: normal;
+	line-height: 1;
+	-webkit-font-smoothing: antialiased;
+}
+.icon-clock:before {
+	content: "\e023";
+}
+.icon-history:before {
+	content: "\e022";
+}
+.icon-compass:before {
+	content: "\e021";
+}
+.icon-location:before {
+	content: "\e020";
+}
+.icon-mail:before {
+	content: "\e01f";
+}
+.icon-user:before {
+	content: "\e041";
+}
+.icon-tag:before {
+	content: "\e019";
+}
+.icon-cart:before {
+	content: "\e01a";
+}
+.icon-basket:before {
+	content: "\e01b";
+}
+.icon-cog:before {
+	content: "\e04f";
+}
+.icon-gift:before {
+	content: "\e053";
+}
+.icon-meter-medium:before {
+	content: "\e059";
+}
+.icon-meter-fast:before {
+	content: "\e05a";
+}
+.icon-rocket:before {
+	content: "\e057";
+}
+.icon-arrow-left:before {
+	content: "\e0be";
+}
+.icon-google-plus:before {
+	content: "\e0df";
+}
+.icon-facebook:before {
+	content: "\e0e3";
+}
+.icon-twitter:before {
+	content: "\e0e6";
+}
+.icon-linkedin:before {
+	content: "\e118";
+}
+.icon-tag-2:before {
+	content: "\e174";
+}
+.icon-location-2:before {
+	content: "\e173";
+}
+.icon-switch:before {
+	content: "\e14d";
+}
+.icon-locked:before {
+	content: "\e13e";
+}
+.icon-location-3:before {
+	content: "\e166";
+}
+.icon-heart:before {
+	content: "\e169";
+}

@@ -1,0 +1,11 @@
+C:\Users\sinan.bozkus\source\repos\Shopping\Shopping.DataAccess\bin\Debug\Shopping.DataAccess.dll.config
+C:\Users\sinan.bozkus\source\repos\Shopping\Shopping.DataAccess\bin\Debug\Shopping.DataAccess.dll
+C:\Users\sinan.bozkus\source\repos\Shopping\Shopping.DataAccess\bin\Debug\Shopping.DataAccess.pdb
+C:\Users\sinan.bozkus\source\repos\Shopping\Shopping.DataAccess\bin\Debug\EntityFramework.dll
+C:\Users\sinan.bozkus\source\repos\Shopping\Shopping.DataAccess\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\sinan.bozkus\source\repos\Shopping\Shopping.DataAccess\bin\Debug\EntityFramework.xml
+C:\Users\sinan.bozkus\source\repos\Shopping\Shopping.DataAccess\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\sinan.bozkus\source\repos\Shopping\Shopping.DataAccess\obj\Debug\Shopping.DataAccess.csprojResolveAssemblyReference.cache
+C:\Users\sinan.bozkus\source\repos\Shopping\Shopping.DataAccess\obj\Debug\Shopping.DataAccess.csproj.CoreCompileInputs.cache
+C:\Users\sinan.bozkus\source\repos\Shopping\Shopping.DataAccess\obj\Debug\Shopping.DataAccess.dll
+C:\Users\sinan.bozkus\source\repos\Shopping\Shopping.DataAccess\obj\Debug\Shopping.DataAccess.pdb

@@ -1,0 +1,90 @@
+﻿@using Shopping.WebUI.Models
+@using Shopping.DataAccess.Models
+@model HomeViewModel
+
+<div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+    <!-- Indicators -->
+    <ol class="carousel-indicators">
+        @for (int i = 0; i < Model.CarouselProducts.Count; i++)
+        {
+            if (i == 0)
+            {
+                <li data-target="#carousel-example-generic" data-slide-to="@i" class="active"></li>
+            }
+            else
+            {
+                <li data-target="#carousel-example-generic" data-slide-to="@i"></li>
+            }
+
+
+        }
+    </ol>
+
+    <!-- Wrapper for slides -->
+    <div class="carousel-inner" role="listbox">
+        @foreach (Product item in Model.CarouselProducts)
+        {
+            if (item == Model.CarouselProducts.First())
+            {
+                <div class="item active">
+                    <img src="~/Contents/Images/@item.ImageUrl" alt="@item.ProductName">
+                    <div class="carousel-caption">
+                        <h3>@item.ProductName</h3>
+                        <p>@item.Description</p>
+                    </div>
+                </div>
+            }
+            else
+            {
+                <div class="item">
+                    <img src="~/Contents/Images/@item.ImageUrl" alt="@item.ProductName">
+                    <div class="carousel-caption">
+                        <h3>@item.ProductName</h3>
+                        <p>@item.Description</p>
+                    </div>
+                </div>
+            }
+
+
+        }
+    </div>
+
+    <!-- Controls -->
+    <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
+        <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+    </a>
+    <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
+        <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+    </a>
+</div>
+
+
+<ul class="thumbnails">
+    @foreach (Product item in Model.Products)
+    {
+        <li class="span3 col-md-4">
+            <a href="/Product/Index/@item.Id">
+                <div class="thumbnail">
+                    <span>@item.Category.CategoryName</span>
+
+                    @if (item.ImageUrl == null || item.ImageUrl == "")
+                {
+                        <img data-src="~/Contents/Images/no_image.gif" alt="300x200" style="width: 300px; height: 200px;" src="~/Contents/Images/no_image.gif">
+                    }
+                    else
+                    {
+                        <img data-src="~/Contents/Images/@item.ImageUrl" alt="300x200" style="width: 300px; height: 200px;" src="~/Contents/Images/@item.ImageUrl">
+                    }
+
+                    <div class="caption">
+                        <h3>@item.ProductName</h3>
+                        <p>@item.Description</p>
+                    </div>
+
+                </div>
+            </a>
+        </li>
+    }
+</ul>

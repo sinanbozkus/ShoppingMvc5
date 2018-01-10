@@ -1,0 +1,18 @@
+﻿@{ 
+    ViewBag.Title = Model.ProductName;
+}
+
+@using Shopping.DataAccess.Models
+@model Product
+
+<h2>@Model.ProductName</h2>
+
+@if (Model.ImageUrl != null && Model.ImageUrl != "")
+{
+    <p class="text-center"><img src="~/Contents/Images/@Model.ImageUrl" style="max-width:85%; margin:30px;" /></p>
+}
+
+<p>@Model.Description</p>
+
+<p>Stock: @Model.InStock</p>
+

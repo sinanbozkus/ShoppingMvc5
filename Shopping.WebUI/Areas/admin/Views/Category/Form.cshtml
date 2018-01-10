@@ -1,0 +1,73 @@
+﻿@using Shopping.DataAccess.Models
+@model Category
+
+    <div class="wrapper wrapper-content animated fadeInRight">
+        <div class="row">
+            <div class="col-lg-12">
+
+                <div class="ibox float-e-margins">
+
+                    <div class="ibox-title">
+                        @if (Model == null || Model.Id == 0)
+                        {
+                            <h5>New Category</h5>
+                        }
+                        else
+                        {
+                            <h5>Category Edit</h5>
+                        }
+                    </div>
+
+                    <div class="ibox-content">
+
+                        @using (Html.BeginForm("Save", "Category", FormMethod.Post, new { @class = "form-horizontal" }))
+                        {
+                            if (Model != null && Model.Id != 0)
+                            {
+                                @Html.HiddenFor(x => x.Id)
+                            }
+
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label">Category Name</label>
+
+                                <div class="col-sm-10">
+                                    @*<input type="text" class="form-control" id="CategoryName" name="CategoryName">*@
+                                    @Html.TextBoxFor(x => x.CategoryName, new { @class = "form-control" })
+                                    @Html.ValidationMessageFor(x => x.CategoryName, null, new { @class = "text-danger" })
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label">Description</label>
+
+                                <div class="col-sm-10">
+                                    @Html.TextAreaFor(x => x.Description, new { @class = "form-control" })
+                                    @Html.ValidationMessageFor(x => x.Description, null, new { @class = "text-danger" })
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label">Active</label>
+
+                                <div class="col-sm-10">
+                                    @Html.CheckBoxFor(x => x.Active)
+                                    @Html.ValidationMessageFor(x => x.Active, null, new { @class = "text-danger" })
+                                </div>
+                            </div>
+
+
+                            <div class="form-group">
+                                <div class="col-sm-4 col-sm-offset-2">
+                                    <a href="/admin/Category/" class="btn btn-white">Cancel</a>
+                                    <button class="btn btn-primary" type="submit">Save</button>
+                                </div>
+                            </div>
+                        }
+
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </div>

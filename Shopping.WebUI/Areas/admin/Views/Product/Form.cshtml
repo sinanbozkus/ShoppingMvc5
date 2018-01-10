@@ -1,0 +1,115 @@
+﻿@using Shopping.DataAccess.Models
+@model Product
+
+<div class="wrapper wrapper-content animated fadeInRight">
+    <div class="row">
+        <div class="col-lg-12">
+
+            <div class="ibox float-e-margins">
+
+                <div class="ibox-title">
+                    @if (Model == null || Model.Id == 0)
+                    {
+                        <h5>New Product</h5>
+                    }
+                    else
+                    {
+                        <h5>Product Edit</h5>
+                    }
+                </div>
+
+                <div class="ibox-content">
+
+                    @using (Html.BeginForm("Save", "Product", FormMethod.Post, new { @class = "form-horizontal", enctype = "multipart/form-data" }))
+                    {
+                        if (Model != null && Model.Id != 0)
+                        {
+                            @Html.HiddenFor(x => x.Id)
+                        }
+
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">Product Name</label>
+
+                            <div class="col-sm-10">
+                                @*<input type="text" class="form-control" id="CategoryName" name="CategoryName">*@
+                                @Html.TextBoxFor(x => x.ProductName, new { @class = "form-control" })
+                                @Html.ValidationMessageFor(x => x.ProductName, null, new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">Category</label>
+
+                            <div class="col-sm-10">
+
+                                @*<select class="form-control">
+                                        <option>Computers</option>
+                                        <option>Phones</option>
+                                        <option>Clothes</option>
+                                        <option>Games</option>
+                                    </select>*@
+
+
+                                @Html.DropDownListFor(x => x.CategoryId, (SelectList)ViewBag.Categories, new { @class = "form-control" })
+                                @Html.ValidationMessageFor(x => x.CategoryId, null, new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">Description</label>
+
+                            <div class="col-sm-10">
+                                @Html.TextAreaFor(x => x.Description, new { @class = "form-control" })
+                                @Html.ValidationMessageFor(x => x.Description, null, new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label">InStock</label>
+
+                                <div class="col-sm-10">
+                                    @Html.TextBoxFor(x => x.InStock, new { @class = "form-control", type = "number" })
+                                    @Html.ValidationMessageFor(x => x.InStock, null, new { @class = "text-danger" })
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label">Image</label>
+
+                                <div class="col-sm-10">
+                                    <input type="file" name="fileImage" id="fileImage" class="form-control" />
+                                    @*@Html.TextBox("fileImage", null, new { @class="form-control", type="file" })*@
+                                    @if (Model != null && Model.ImageUrl != null && Model.ImageUrl != "")
+                                    {
+                                        <a href="~/Contents/Images/@Model.ImageUrl" data-lightbox="image-1">
+                                            <img src="~/Contents/Images/@Model.ImageUrl" style="max-width:500px; max-height:300px;" />
+                                        </a>
+                                    }
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label">Active</label>
+
+                                <div class="col-sm-10">
+                                    @Html.CheckBoxFor(x => x.Active)
+                                    @Html.ValidationMessageFor(x => x.Active, null, new { @class = "text-danger" })
+                                </div>
+                            </div>
+
+
+                            <div class="form-group">
+                                <div class="col-sm-4 col-sm-offset-2">
+                                    <a href="/admin/Category/" class="btn btn-white">Cancel</a>
+                                    <button class="btn btn-primary" type="submit">Save</button>
+                                </div>
+                            </div>
+                    }
+
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+</div>

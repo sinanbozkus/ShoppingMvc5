@@ -1,0 +1,148 @@
+﻿@using Shopping.WebUI.Models
+@using Shopping.DataAccess.Models
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    @if (ViewBag.Title == null)
+    {
+        <title>BilgeAdam Shopping</title>
+    }
+    else
+    {
+        <title>@ViewBag.Title - BilgeAdam Shopping</title>
+    }
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <!-- Include Stylesheets -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+    <link href="~/assets/css/app.css" rel="stylesheet">
+    <link href="~/assets/css/animate.css" rel="stylesheet">
+    <link href="~/assets/css/style.css" rel="stylesheet">
+    <link href="~/assets/css/prettyCheckable.css" rel="stylesheet">
+    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <!-- Fav and touch icons -->
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="~/assets/ico/apple-touch-icon-144-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="~/assets/ico/apple-touch-icon-114-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="~/assets/ico/apple-touch-icon-72-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" href="~/assets/ico/apple-touch-icon-57-precomposed.png">
+    <link rel="shortcut icon" href="~/assets/ico/favicon.png">
+
+</head>
+<body>
+
+
+    <!-- Start Header/Navbar  -->
+    <div class="navbar navbar-static-top">
+        <div class="navbar-inner">
+            <div class="container">
+                <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </a>
+                <a class="brand" href="/">BilgeAdam Shopping</a>
+                <div class="nav-collapse collapse">
+                    <ul class="nav">
+                        <li class="active"><a href="/">Home</a></li>
+                        <li><a href="#about">About</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div><!--/.nav-collapse -->
+            </div>
+        </div>
+    </div>
+    <!-- End Header/Navbar  -->
+    <!-- Start Main Content  -->
+    <div class="container">
+
+
+        <!-- Start Search Section  -->
+        <div id="search-section">
+
+            <div class="row">
+                <div class="span12">
+                    @*<form action="" class="form-inline">
+                        <input type="text" class="span5 search-input" id="search" data-provide="typeahead" placeholder="Search by Keyword..." data-items="4" />
+                        <button type="submit" class="btn btn-blue">  Search</button>
+                    </form>*@
+                    @using (Html.BeginForm("Search", "Category", FormMethod.Post, new { @class = "form-inline", data_provide = "typeahead", placeholder = "Search by Keyword...", data_items = "4" }))
+                    {
+                        @Html.TextBox("searchedText", null, new { @class= "span5 search-input" })
+                        <button type="submit" class="btn btn-blue">  Search</button>
+                    }
+                </div>
+            </div>
+
+
+        </div>
+        <!-- End Search Section  -->
+        <!-- Start Left Sidebar  -->
+
+        <div class="row">
+            <div class="span3 col-lg-3">
+                <div class="sidebar-nav">
+                    <div class="base">
+                        <ul class="nav nav-list">
+                            <li class="active"><a href="#"><div class="fs1" aria-hidden="true" data-icon="&#xe019;"></div>Categories</a></li>
+                            
+                            @{
+
+                                LayoutViewModel layoutVm = (LayoutViewModel)ViewBag.Layout;
+
+                                foreach (Category item in layoutVm.Categories)
+                                {
+                                    <li><a href="/Category/Index/@item.Id">@item.CategoryName</a></li>
+                                }
+
+                        }
+                            <li class="divider"></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- End Left Sidebar  -->
+            <!-- Start Right Section  -->
+
+            <div class="span9 col-lg-9">
+
+                @RenderBody()
+               
+            </div>
+        </div>
+
+        <!-- End Right Section  -->
+
+    </div> <!-- End Main Content -->
+    <!-- Start Footer -->
+
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="span6"><p><strong>&copy; BilgeAdam Shopping</strong> - @DateTime.Now.Year </p></div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- End Footer -->
+    <!-- Le javascript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    @*<script src="~/assets/js/prettyCheckable.js"></script>
+    <script src="~/assets/js/main.js"></script>*@
+
+    <script>
+        $('.carousel').carousel();
+    </script>
+
+</body>
+</html>

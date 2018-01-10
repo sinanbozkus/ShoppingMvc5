@@ -1,0 +1,74 @@
+﻿@{ 
+    Layout = null;
+}
+
+@using Shopping.WebUI.Models
+@model LoginViewModel
+
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Shopping Login</title>
+
+    <link href="~/Areas/admin/css/bootstrap.min.css" rel="stylesheet">
+    <link href="~/Areas/admin/font-awesome/css/font-awesome.css" rel="stylesheet">
+
+    <link href="~/Areas/admin/css/animate.css" rel="stylesheet">
+    <link href="~/Areas/admin/css/style.css" rel="stylesheet">
+
+</head>
+
+<body class="gray-bg">
+
+    <div class="middle-box text-center loginscreen animated fadeInDown">
+        <div>
+            <div>
+
+                <h1 class="logo-name">SP+</h1>
+
+            </div>
+            <h3>Welcome to Shopping+</h3>
+            <p>Login in. To see it in action.</p>
+            @*<form class="m-t" role="form" action="index.html">
+                <div class="form-group">
+                    <input type="email" class="form-control" placeholder="Username" required="">
+                </div>
+                <div class="form-group">
+                    <input type="password" class="form-control" placeholder="Password" required="">
+                </div>
+                <button type="submit" class="btn btn-primary block full-width m-b">Login</button>
+
+                
+            </form>*@
+            @if(ViewBag.ErrorMessage != null)
+            {
+                <div class="alert alert-danger">@ViewBag.ErrorMessage</div>
+            }
+
+            @using (Html.BeginForm("LoginUser", "Login", FormMethod.Post, new { @class = "m-t" }))
+            {
+                <div class="form-group">
+                    @Html.TextBoxFor(x => x.Username, new { placeholder = "Username", @class="form-control" })
+                </div>
+                <div class="form-group">
+                    @Html.PasswordFor(x => x.Password, new { placeholder = "Password", @class="form-control"})
+                </div>
+                <button type="submit" class="btn btn-primary block full-width m-b">Login</button>
+            }
+
+            <p class="m-t"> <small>Shopping+ &copy; @DateTime.Now.Year</small> </p>
+        </div>
+    </div>
+
+    <!-- Mainly scripts -->
+    <script src="~/Areas/admin/js/jquery-3.1.1.min.js"></script>
+    <script src="~/Areas/admin/js/bootstrap.min.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,30 @@
+﻿@using Shopping.DataAccess.Models
+@model List<Product>
+
+<ul class="thumbnails">
+    @foreach (Product item in Model)
+    {
+        <li class="span3 col-md-4">
+            <a href="/Product/Index/@item.Id">
+                <div class="thumbnail">
+                    <span>@item.Category.CategoryName</span>
+
+                    @if (item.ImageUrl == null || item.ImageUrl == "")
+                {
+                        <img data-src="~/Contents/Images/no_image.gif" alt="300x200" style="width: 300px; height: 200px;" src="~/Contents/Images/no_image.gif">
+                    }
+                    else
+                    {
+                        <img data-src="~/Contents/Images/@item.ImageUrl" alt="300x200" style="width: 300px; height: 200px;" src="~/Contents/Images/@item.ImageUrl">
+                    }
+
+                    <div class="caption">
+                        <h3>@item.ProductName</h3>
+                        <p>@item.Description</p>
+                    </div>
+
+                </div>
+            </a>
+        </li>
+    }
+</ul>
